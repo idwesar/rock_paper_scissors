@@ -7,9 +7,12 @@ while True:
 
     while score1 < 2 and score2 < 2:
         player1 = input("Enter a choice (rock, paper, scissors): ")
-        possible_actions = ["rock", "paper", "scissors"]
-        player2 = random.choice(possible_actions)
-        print(f"\nYou Chose {player1}, computer chose {player2}.\n")
+        if player1 == "rock" or "paper" or "scissors":
+            possible_actions = ["rock", "paper", "scissors"]
+            player2 = random.choice(possible_actions)
+            print(f"\nYou Chose {player1}, computer chose {player2}.\n")
+        else:
+            player1 = input("Sorry, I didn't quite get that, try again! Enter a choice (rock, paper, scissors): ")
 
         if player1 == player2:
             print(f"It's a Draw! Both players selected {player1}!")
@@ -37,6 +40,9 @@ while True:
         print(f"{score1}:{score2}")
         counter +=1
 
-    play_again = input("Play again? ")
-    if play_again != "yes":
+    play_again = input("Play again? (yes, no): ")
+
+    if play_again != "yes" and "no":
+        play_again = input("Sorry, I didn't quite get that, try again! Play again? (yes, no): ")
+    elif play_again != "yes":
         break
